@@ -1,13 +1,30 @@
 import java.util.Scanner;
 
-public class BattleRoyale {
+public class BattleRoyale{
 
+    //da al usuario a elegir el tamanio de la arena
+    public static void eleccionArena(){
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("Elige las dimensiones de la arena: de 1 a 3.");
+        int tamanio = sc.nextInt();
+        if (tamanio< 1 || tamanio >3){
+            System.out.println("Ingresa una dimension valida.");
+        } else {
+            Arena.generarArena(tamanio);
+        }
+        Arena.mostrarArena();
+    }
 
     public static void jugar(){
         try {
+            eleccionArena();
+
             Scanner sc = new Scanner(System.in);
-            System.out.println("Hola");
+            //comandos de movimiento
+            System.out.println("Tu turno.");
+            System.out.println("usa w a s d para moverte, o f para disparar:");
+            String movimiento = sc.nextLine();
 
         }
         catch (Exception e){

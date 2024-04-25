@@ -1,6 +1,12 @@
+import java.util.Arrays;
+
 public class Arena {
-    char [][] posiciones;
-    public void generarArena(int medida){
+    public static char [][] posiciones;
+
+    public static void mostrarArena(){
+        System.out.println(Arrays.deepToString(posiciones));
+    }
+    public static void generarArena(int medida){
         System.out.println("Ingrese una medida de arena entre 1 y 3");
         if (medida ==1 ){
             posiciones = new char[10][10];
@@ -12,4 +18,6 @@ public class Arena {
             System.out.println("Ingrese una medida válida.");
         }
     }
+
+
 }
