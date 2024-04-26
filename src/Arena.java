@@ -20,17 +20,17 @@ public class Arena {
         if (medida == 1 ){
             posiciones = new char[10][10];
             vaciarArena();
-            colocarObstaculos(medida*3);
+            colocarObstaculos(medida);
         }
         if (medida == 2){
             posiciones = new char[15][10];
             vaciarArena();
-            colocarObstaculos(medida*3);
+            colocarObstaculos(medida);
         }
         if (medida == 3){
             posiciones = new char[30][15];
             vaciarArena();
-            colocarObstaculos(medida*3);
+            colocarObstaculos(medida);
         }
     }
 
@@ -42,17 +42,21 @@ public class Arena {
     }
 
     public static void colocarObstaculos(int cantidadDeObs){
-        int contador = 0;
-        while (contador <cantidadDeObs){
+        int contadorObstaculos = 0;
+        int contadorPowerUps = 0;
+        while (contadorObstaculos < cantidadDeObs * 3){
             //elige con Math.Random, posiciones aleatorias para plantar 3 obstaculos
             int filaAletoria = (int) (Math.random() * posiciones.length );
             int columnaAleatoria = (int) (Math.random() * posiciones[0].length);
             posiciones[filaAletoria][columnaAleatoria] = '0';
+            contadorObstaculos++;
+        }
 
-            System.out.println("las posiciones fueron: posiciones" + filaAletoria + " " + columnaAleatoria);
-            System.out.println(posiciones[filaAletoria][columnaAleatoria]);
-
-            contador++;
+        while (contadorPowerUps < cantidadDeObs * 2 ){
+            int filaAletoria = (int) (Math.random() * posiciones.length );
+            int columnaAleatoria = (int) (Math.random() * posiciones[0].length);
+            posiciones[filaAletoria][columnaAleatoria] = 'E';
+            contadorPowerUps++;
         }
     }
 

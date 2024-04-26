@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class BattleRoyale{
     static boolean arenaCreada = false;
 
+
     //da al usuario a elegir el tamanio de la arena
     public static void eleccionArena(){
         Scanner sc = new Scanner(System.in);
@@ -15,6 +16,7 @@ public class BattleRoyale{
         } else {
             Arena.generarArena(tamanio);
             arenaCreada = true;
+            Jugador.colocarJugadores();
             Arena.mostrarArena();
         }
     }
@@ -24,21 +26,24 @@ public class BattleRoyale{
             eleccionArena();
         }
 
+        if (Jugador.turno){
+            try {
 
-        try {
 
-            Scanner sc = new Scanner(System.in);
-            //comandos de movimiento
-            System.out.println("Tu turno.");
-            System.out.println("usa w a s d para moverte, o f para disparar:");
-            String movimiento = sc.nextLine();
-            Arena.mostrarArena();
+                Scanner sc = new Scanner(System.in);
+                //comandos de movimiento
+                System.out.println("Tu turno.");
+                System.out.println("usa w a s d para moverte, o f para disparar:");
+                String movimiento = sc.nextLine();
+                Arena.mostrarArena();
 
+            }
+            catch (Exception e){
+                System.out.println("ocurrio un error" + e.getMessage());
+
+            }
         }
-        catch (Exception e){
-            System.out.println("ocurrio un error" + e.getMessage());
 
-        }
     }
 
 
