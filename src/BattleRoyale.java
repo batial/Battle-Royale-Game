@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BattleRoyale{
@@ -13,8 +14,8 @@ public class BattleRoyale{
             System.out.println("Ingresa una dimension valida.");
         } else {
             Arena.generarArena(tamanio);
-            Arena.mostrarArena();
             arenaCreada = true;
+            Arena.mostrarArena();
         }
     }
 
@@ -31,6 +32,7 @@ public class BattleRoyale{
             System.out.println("Tu turno.");
             System.out.println("usa w a s d para moverte, o f para disparar:");
             String movimiento = sc.nextLine();
+            Arena.mostrarArena();
 
         }
         catch (Exception e){
